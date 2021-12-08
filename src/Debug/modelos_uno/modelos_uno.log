@@ -1,0 +1,11 @@
+﻿  graph.c
+  graphics.c
+  node.c
+  nodesList.c
+  pnode.c
+  pnodesList.c
+  leer_dimac.c
+  lhk_branch_and_cut.c
+C:\Users\agust\source\repos\AgustinTardaFIUBA\modelos_1_ejercicio_3\src\lhk_branch_and_cut.c(7,10): fatal error C1083: Cannot open include file: 'C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/include/ilcplex/cplex.h': No such file or directory
+  main.c
+  Generating Code...
