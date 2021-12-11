@@ -4,7 +4,7 @@
 
 #define TIPO_VARIABLE CPX_BINARY
 
-#include "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/include/ilcplex/cplex.h"
+#include "C:/Program Files/IBM/ILOG/CPLEX_Studio201/cplex/include/ilcplex/cplex.h"
 
 #include <ctype.h>
 #include <stdlib.h>
@@ -166,6 +166,16 @@ static int populatebyrow(CPXENVptr env, CPXLPptr lp, bool **matriz, int* pesos, 
 
 	posicionVariables = (int*) malloc(Nr_vert * sizeof(int));
 	coeficienteVariables = (double*) malloc(Nr_vert * sizeof(double));
+	//Eliminacion Simetria por Xk>=Xk+1
+	for (k = 0; k < maximoColor - 1; k++) {
+		posicionVariables[0] = k;
+		coeficienteVariables[0] = 1;
+		posicionVariables[1] = k + 1;
+		coeficienteVariables[1] = -1;
+		status = CPXaddrows(env, lp, 0, 1, 2, NULL, "G", &zero, posicionVariables, coeficienteVariables, NULL, NULL);
+		if (status)
+			goto TERMINATE;
+	}
 
 	//Si el vertice i usa color k la variable de ese color debe pesar por lo menos el peso del vertice i
 	for (k = 0; k < maximoColor; k++) {
@@ -262,7 +272,7 @@ int procesar_Tp(char *path, char *pathOutput) {
 
 	///----
 	int *coloreoValido = (int *) malloc(Nr_vert * sizeof(int));
-	int maxColor = Nr_vert;
+	int maxColor = 7;
 	buscarSolucionInicial(coloreoValido);
 
 	status = populatebyrow(env, lp, matriz, pesos, Nr_vert, maxColor);
@@ -380,8 +390,99 @@ int procesar_Tp(char *path, char *pathOutput) {
 } /* END main */
 
 void buscarSolucionInicial(int* coloreoValido) {
-	int i;
-	for (i = 0; i < Nr_vert; i++) {
-		coloreoValido[i] = i;
-	}
+	coloreoValido[28] = 1;
+	coloreoValido[74] = 1;
+	coloreoValido[76] = 1;
+	coloreoValido[18] = 1;
+	coloreoValido[25] = 1;
+	coloreoValido[33] = 1;
+	coloreoValido[32] = 1;
+	coloreoValido[43] = 1;
+	coloreoValido[65] = 1;
+	coloreoValido[72] = 1;
+	coloreoValido[29] = 1;
+	coloreoValido[38] = 1;
+	coloreoValido[79] = 1;
+	coloreoValido[90] = 1;
+	coloreoValido[92] = 1;
+	coloreoValido[27] = 1;
+	coloreoValido[30] = 1;
+	coloreoValido[86] = 1;
+	coloreoValido[54] = 1;
+	coloreoValido[40] = 1;
+	coloreoValido[88] = 1;
+	coloreoValido[84] = 1;
+	coloreoValido[87] = 1;
+	coloreoValido[83] = 1;
+	coloreoValido[85] = 1;
+	coloreoValido[89] = 1;
+	coloreoValido[42] = 1;
+	coloreoValido[78] = 1;
+	coloreoValido[44] = 1;
+	coloreoValido[77] = 1;
+	coloreoValido[91] = 1;
+	coloreoValido[80] = 1;
+	coloreoValido[82] = 1;
+	coloreoValido[41] = 1;
+	coloreoValido[39] = 1;
+	coloreoValido[75] = 1;
+	coloreoValido[31] = 1;
+	coloreoValido[36] = 1;
+	coloreoValido[5] = 2;
+	coloreoValido[17] = 2;
+	coloreoValido[53] = 2;
+	coloreoValido[69] = 2;
+	coloreoValido[12] = 2;
+	coloreoValido[47] = 2;
+	coloreoValido[60] = 2;
+	coloreoValido[59] = 2;
+	coloreoValido[52] = 2;
+	coloreoValido[48] = 2;
+	coloreoValido[16] = 2;
+	coloreoValido[21] = 2;
+	coloreoValido[63] = 2;
+	coloreoValido[64] = 2;
+	coloreoValido[57] = 2;
+	coloreoValido[68] = 2;
+	coloreoValido[94] = 2;
+	coloreoValido[9] = 3;
+	coloreoValido[50] = 3;
+	coloreoValido[8] = 3;
+	coloreoValido[20] = 3;
+	coloreoValido[56] = 3;
+	coloreoValido[62] = 3;
+	coloreoValido[55] = 3;
+	coloreoValido[61] = 3;
+	coloreoValido[3] = 3;
+	coloreoValido[19] = 3;
+	coloreoValido[4] = 3;
+	coloreoValido[73] = 3;
+	coloreoValido[51] = 3;
+	coloreoValido[15] = 3;
+	coloreoValido[14] = 3;
+	coloreoValido[67] = 3;
+	coloreoValido[37] = 3;
+	coloreoValido[26] = 3;
+	coloreoValido[66] = 3;
+	coloreoValido[10] = 4;
+	coloreoValido[13] = 4;
+	coloreoValido[35] = 4;
+	coloreoValido[95] = 4;
+	coloreoValido[71] = 5;
+	coloreoValido[11] = 5;
+	coloreoValido[22] = 5;
+	coloreoValido[24] = 5;
+	coloreoValido[58] = 5;
+	coloreoValido[34] = 5;
+	coloreoValido[45] = 5;
+	coloreoValido[1] = 5;
+	coloreoValido[81] = 5;
+	coloreoValido[93] = 6;
+	coloreoValido[49] = 6;
+	coloreoValido[23] = 6;
+	coloreoValido[70] = 6;
+	coloreoValido[2] = 6;
+	coloreoValido[7] = 6;
+	coloreoValido[46] = 6;
+	coloreoValido[6] = 7;
 }

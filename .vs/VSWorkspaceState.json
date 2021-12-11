@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src"
+    "\\src",
+    "\\src\\results"
   ],
-  "SelectedNode": "\\src\\tp_modelos_uno.cpp.sln",
+  "SelectedNode": "\\src\\results\\finalResults.txt",
   "PreviewInSolutionExplorer": false
 }
