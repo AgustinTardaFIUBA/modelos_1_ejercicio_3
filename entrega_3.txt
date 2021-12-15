@@ -1,0 +1,19 @@
+TP3:
+    Idea inicial: Primero corriendo el codigo inicial el algoritmo tardaba demasiado y no presentaba practicamente ninguna mejora entre iteracion e iteracion.
+
+    Comentarios en cada paso:
+    -Luego siguiendo los pasos del enunciado, aplico el algoritmo inicial de coloreo provisto por el codigo recomendado en conjunto con la respuesta harcodeada de la
+    entrega 2, el cual le permite acotar la cantidad de iteraciones que debe realizar el algoritmo. Esto resulto en un timepo total de 95, por lo tanto no se alcanzo el optimo
+    (91), y el algoritmo tardo 1800 segundo = media hora lo cual a priori parece un tiempo grande para el set de datos que se nos da, que comparado con el set de la entrega
+    anterior es bastante reducido.
+
+    -Prosigo a cambiar la cantidad de colores maximos que el algoritmo deberia dar como resultado el algoritmo, que traducido a nuestro problema es la cantidad de
+    lavarropas maximos que debo realizar. Este valor lo modifico con mi resultado de la entrega dos y efectivamente provoca mejor tiempo final alcanzando el
+    optimo el cual es 91. El problema que queda vigente es el del tiempo que tarda en llegar a este resultado, este fue 1800 al igual que la corrida anterior.
+    
+    -Por ultimo aplicamos el punto 4 de la entrega el cual agrega una restriccion la cual elimina la simetria por Xk>=Xk+1. Esto resulta en el valor optimo de la solucion y para
+    llegar a esto transcurren 92 segundos, por lo tanto se redujo considerablemente el costo temporal del algoritmo y es mas acorde al set de datos del problema.
+    
+    Comentarios finales: Se puede ver como en cada paso se agregan nuevas restriccion al algoritmo y esto le permite procesar el set de datos en menos iteraciones, en un menor
+    tiempo y llegando al optimo. Esto es equivalente a agregarle restricciones al mismo problema teorico de la entrega reduciendo y acotando el "espacio" en el cual puede 
+    encontrarse el optimo. 
